@@ -45,13 +45,34 @@
         </div>
 
     </form>
-    Ceci est un premier essaie de MAJ
-    <br>un autre essaie
+
+
+
+
+    <form action="" method="post">
+        <br>
+        <button type="submit">Mettre a jour maintenat</button>
+    </form>
+
+  
+
+
+
+
 </body>
 </html>
 
 <?php 
-echo"c'est ok";
+
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Display message if form is submitted
+    echo "<p>La mise à jour a été lancée.</p>"; // "Update initiated."
+  }
+
 
 // Exécuter la commande git status
 $output = shell_exec('git status');
@@ -63,9 +84,10 @@ if ($has_updates) {
   echo"Il ya une mise a jour disponible";
   
   $gitPullOutput = shell_exec('git pull origin');
+  echo"c'est ok vous etes a jour maintenant";
 }
 else {
-echo"c'est ok vous etes a jour maintenant";
+echo"vous etes deja a jour maintenant";
 }
 
 ?>
