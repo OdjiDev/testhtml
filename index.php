@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo"c'est ok vous etes a jour maintenant";
            
                 $counter = 0;   
-                echo"<p>La mise à jour numero", $counter ," a été effectuer.</p>"; 
+                echo"<p>La mise à jour numero :", $counter ," a été effectuer.</p>"; 
                 $counter++;
     }
         
