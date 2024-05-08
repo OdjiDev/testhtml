@@ -95,15 +95,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     }
 
-   function gitPull(){
-     //commit ou sauvegarde de  l'ancienne version avant mise a jour
-     $gitcommitOutput = shell_exec('git commit -a -m "Obtention de nouvelle mise a jour"');
-     //Lancement de la mise a jour
-    $gitPullOutput = shell_exec('git pull origin');
+   function gitPull()
+   {
+        //commit ou sauvegarde de  l'ancienne version avant mise a jour
+        $gitcommitOutput = shell_exec('git commit -a -m "Obtention de nouvelle mise a jour"');
+        //Lancement de la mise a jour
+        $gitPullOutput = shell_exec('git pull origin');
                 echo"c'est ok vous etes a jour maintenant";
            
-            echo"<p>La mise à jour a été effectuer.</p>"; 
-        } 
+                $counter = 0;   
+                echo"<p>La mise à jour numero", $counter ," a été effectuer.</p>"; 
+                $counter++;
+    }
+        
 
 
 ?>
