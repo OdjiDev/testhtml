@@ -46,9 +46,26 @@
 
     </form>
     Ceci est un premier essaie de MAJ
+    <br>un autre essaie
 </body>
 </html>
 
 <?php 
 echo"c'est ok";
+
+// Exécuter la commande git status
+$output = shell_exec('git status');
+
+// Vérifier la présence de mise a jour
+$has_updates = preg_match('/behind/', $output);
+
+if ($has_updates) {
+  echo"Il ya une mise a jour disponible";
+  
+  $gitPullOutput = shell_exec('git pull origin');
+}
+else {
+echo"c'est ok vous etes a jour maintenant";
+}
+
 ?>
