@@ -85,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $has_updates = preg_match($pattern, $output);
     
         if ($has_updates) {
-            echoln( "Il ya une mise a jour disponible");
-            echoln("Cliquer sur le boutton de mise a jour pour lancer");
+            echo"Il ya une mise a jour disponible";
+            echo"Cliquer sur le boutton de mise a jour pour lancer";
 
     
     }
@@ -100,9 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $gitcommitOutput = shell_exec('git commit -a -m "Obtention de nouvelle mise a jour"');
      //Lancement de la mise a jour
     $gitPullOutput = shell_exec('git pull origin');
-                echoln("c'est ok vous etes a jour maintenant");
+                echo"c'est ok vous etes a jour maintenant";
            
-            echoln( "<p>La mise à jour a été effectuer.</p>"); 
+            echo"<p>La mise à jour a été effectuer.</p>"; 
         } 
 
 
