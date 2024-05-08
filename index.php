@@ -69,42 +69,37 @@
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Display message if form is submitted
-
-
-
-
-
- 
-  
-
-
-// Exécuter la commande git status
-$output = shell_exec('git status');
-//veroifier une liste de mots
-$wordsToCheck = array("behind", "diverged", "integrate","pull");
-
-  // Regular expression pattern (case-insensitive)
-  $pattern = '/\b(' . implode('|', $wordsToCheck) . ')\b/i';
-// Vérifier la présence de mise a jour
-
-$has_updates = preg_match($pattern, $output);
-
-if ($has_updates) {
-  echo"Il ya une mise a jour disponible";
-  
-  $gitPullOutput = shell_exec('git pull origin');
-  echo"c'est ok vous etes a jour maintenant";
-}
-else {
-echo"vous etes deja a jour maintenant";
+   
+    // Exécuter la fonction
+    checkAndPerformGitPull();
 }
 
-
-
-
-    echo "<p>La mise à jour a été lancée.</p>"; // "Update initiated."
-  }
-
+    function checkAndPerformGitPull() {
+        // Exécuter la commande git status
+        $output = shell_exec('git status');
+    
+        // Vérifier une liste de mots
+        $wordsToCheck = array("behind", "diverged", "integrate", "pull");
+    
+        // Regular expression pattern (case-insensitive)
+        $pattern = '/\b(' . implode('|', $wordsToCheck) . ')\b/i';
+    
+        // Vérifier la présence de mise à jour
+        $has_updates = preg_match($pattern, $output);
+    
+        if ($has_updates) {
+            echo "Il ya une mise a jour disponible";
+    
+            $gitPullOutput = shell_exec('git pull origin');
+            echo "c'est ok vous etes a jour maintenant";
+        } else {
+            echo "vous etes deja a jour maintenant";
+        }
+    
+        echo "<p>La mise à jour a été effectuer.</p>"; 
+    
+    }
+    
 
 ?>
+
