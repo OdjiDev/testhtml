@@ -74,11 +74,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
 
+ 
+  
+
+
 // Exécuter la commande git status
 $output = shell_exec('git status');
+//veroifier une liste de mots
+$wordsToCheck = array("behind", "diverged", "integrate","pull");
 
+  // Regular expression pattern (case-insensitive)
+  $pattern = '/\b(' . implode('|', $wordsToCheck) . ')\b/i';
 // Vérifier la présence de mise a jour
-$has_updates = preg_match('/behind/', $output);
+
+$has_updates = preg_match($pattern, $output);
 
 if ($has_updates) {
   echo"Il ya une mise a jour disponible";
