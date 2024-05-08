@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page in HTML</title>
 </head>
-<body>
+<body style="background-color: pink;">
     <h1>Login form using HTML and CSS</h1>
     <form action="">
         <!-- Headings for the form -->
