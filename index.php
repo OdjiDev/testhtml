@@ -65,16 +65,13 @@
 <?php 
 
 
-
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     // Exécuter la fonction
-    checkAndPerformGitPull();
+    gitPull();
 }
 
-    function checkAndPerformGitPull() {
+    function checkMAJ() {
         // Exécuter la commande git status
         $output = shell_exec('git status');
     
@@ -88,18 +85,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $has_updates = preg_match($pattern, $output);
     
         if ($has_updates) {
-            echo "Il ya une mise a jour disponible";
-    
-            $gitPullOutput = shell_exec('git pull origin');
-            echo "c'est ok vous etes a jour maintenant";
-        } else {
-            echo "vous etes deja a jour maintenant";
-        }
-    
-        echo "<p>La mise à jour a été effectuer.</p>"; 
+            echoln( "Il ya une mise a jour disponible");
+            echoln("Cliquer sur le boutton de mise a jour pour lancer");
+
     
     }
-    
+    else {
+        echo"pas de mise a jour disponible";
+    }
+    }
+
+   function gitPull(){
+    $gitPullOutput = shell_exec('git pull origin');
+                echoln("c'est ok vous etes a jour maintenant");
+           
+            echoln( "<p>La mise à jour a été effectuer.</p>"); 
+        } 
+
 
 ?>
 
