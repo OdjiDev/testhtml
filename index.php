@@ -70,8 +70,9 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Display message if form is submitted
-    echo "<p>La mise à jour a été lancée.</p>"; // "Update initiated."
-  }
+
+
+
 
 
  
@@ -98,5 +99,12 @@ if ($has_updates) {
 else {
 echo"vous etes deja a jour maintenant";
 }
+
+
+
+
+    echo "<p>La mise à jour a été lancée.</p>"; // "Update initiated."
+  }
+
 
 ?>
